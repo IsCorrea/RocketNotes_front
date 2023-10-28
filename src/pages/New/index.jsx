@@ -18,30 +18,30 @@ export function New() {
       <main>
         <Form>
           <header>
-            <h1>Criar nota</h1>
-            <Link to="/">Voltar</Link>
+            <h1>Create note</h1>
+            <Link to="/">Return</Link>
 
           </header>
 
           <Input
-              placeholder="Título"
+              placeholder="Title"
               type="text"
           />
-          <Textarea placeholder="Observações"/>
+          <Textarea placeholder="Observations"/>
 
-          <Section title='Links úteis'>
+          <Section title='Links'>
             <NoteItem value="https://rocketseat.com.br"/>
-            <NoteItem isNew placeholder='Novo link'/>
+            <NoteItem isNew placeholder='New link'/>
           </Section>
 
-          <Section title='Marcadores'>
+          <Section title='Tags'>
             <div className='tags'>
               <NoteItem value="react"/>
-              <NoteItem isNew placeholder='Nova tag'/>
+              <NoteItem isNew placeholder='New tag'/>
             </div>
           </Section>
 
-          <Button title='Salvar'/>
+          <Button title='Save'/>
 
         </Form>
       </main>

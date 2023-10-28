@@ -13,12 +13,12 @@ export function SignUp() {
 
       <Form>
         <h1>RocketNotes</h1>
-        <p>Aplicação para salvar e gerenciar seus links úteis.</p>
+        <p>Application to save and manage your favorite links.</p>
 
-        <h2>Crie sua conta</h2>
+        <h2>Create account</h2>
 
         <Input 
-          placeholder="Nome"
+          placeholder="Name"
           type="text"
           icon={ FiUser }
         />
@@ -30,14 +30,14 @@ export function SignUp() {
         />
 
         <Input 
-          placeholder="Senha"
+          placeholder="Password"
           type="password"
           icon={ FiLock }
         />
 
-        <Button title="Cadastrar"/>
+        <Button title="Sign Up"/>
 
-        <Link to="/">Voltar para o login</Link>
+        <Link to="/">Go back to login</Link>
         
       </Form>
 

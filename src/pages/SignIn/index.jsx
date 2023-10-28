@@ -10,9 +10,9 @@ export function SignIn() {
     <Container>
       <Form>
         <h1>RocketNotes</h1>
-        <p>Aplicação para salvar e gerenciar seus links úteis.</p>
+        <p>Application to save and manage your favorite links.</p>
 
-        <h2>Faça seu Login</h2>
+        <h2>Login</h2>
 
         <Input 
           placeholder="E-mail"
@@ -21,14 +21,14 @@ export function SignIn() {
         />
 
         <Input 
-          placeholder="Senha"
+          placeholder="Password"
           type="password"
           icon={ FiLock }
         />
 
-        <Button title="Entrar"/>
+        <Button title="Login"/>
 
-        <Link to="/register">Criar conta</Link>
+        <Link to="/register">Create account</Link>
         
       </Form>
 

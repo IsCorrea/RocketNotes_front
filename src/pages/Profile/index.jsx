@@ -18,7 +18,7 @@ export function Profile() {
 
       <Form>
         <Avatar>
-          <img src="https://github.com/iscorrea.png" alt="Foto do usuário" />
+          <img src="https://github.com/iscorrea.png" alt="Profile Picture" />
           
           <label htmlFor="avatar">
             <FiCamera />
@@ -28,7 +28,7 @@ export function Profile() {
 
 
         <Input
-          placeholder="Nome"
+          placeholder="Name"
           type="text"
           icon={FiUser}
         />
@@ -40,18 +40,18 @@ export function Profile() {
         />
 
         <Input
-          placeholder="Senha atual"
+          placeholder="Password"
           type="password"
           icon={FiLock}
         />
 
         <Input
-          placeholder="Nova senha"
+          placeholder="New password"
           type="password"
           icon={FiLock}
         />
 
-        <Button title="Salvar"/>
+        <Button title="Save"/>
   
       </Form>
     </Container>
