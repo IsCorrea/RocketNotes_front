@@ -5,7 +5,7 @@ import { Container } from './styles.js'
 
 export function NoteItem({ isNew, value, onClick, ...rest}) {
   return(
-    <Container isNew = {isNew}>
+    <Container $isnew = {isNew}>
       <input type="text" value={value} readOnly={!isNew} {...rest} />
 
       <button type='button' onClick={onClick} className={isNew ? 'button-add' : 'button-delete'}>

@@ -1,5 +1,8 @@
 import { useState} from 'react'
-import { Link } from 'react-router-dom'
+
+import { useNavigate } from 'react-router-dom'
+
+import { api } from '../../services/api'
 
 import { Container, Form } from './styles'
 import { Header } from '../../components/Header'
@@ -8,13 +11,23 @@ import { Textarea } from '../../components/Textarea'
 import { NoteItem } from '../../components/NoteItem'
 import { Section } from '../../components/Section'
 import { Button } from '../../components/Button'
+import { ButtonText } from '../../components/ButtonText'
 
 export function New() {
+  const [title, setTitle] = useState("")
+  const [description, setDescription] = useState("")
+
   const [links, setLinks] = useState([])
   const [newLink, setNewLink] = useState("")
 
   const [tags, setTags] = useState([])
   const [newTag, setNewTag] = useState("")
+
+  const navigate = useNavigate()
+
+  function handleBack() {
+    navigate(-1)
+  }
 
   function handleAddLink() {
     setLinks(prevState => [...prevState, newLink])
@@ -29,9 +42,41 @@ export function New() {
     setTags(prevState => [...prevState, newTag])
     setNewTag("")
   }
-  
+
   function handleRemoveTag(deleted) {
     setTags(prevState => prevState.filter(tag => tag !== deleted))
+  }
+
+  async function handleNewNote() {
+    if(!title) {
+      return alert("You must add a title")
+    }
+
+    if(links.length === 0) {
+      return alert("You must add a link")
+    }
+
+    if(tags.length === 0) {
+      return alert("You must add a tag")
+    }
+
+    if(newLink) {
+      return alert("Finish adding all Links.")
+    }
+    
+    if(newTag) {
+      return alert("Finish adding all Tags.")
+    }
+
+    await api.post("/notes", {
+      title,
+      description,
+      tags,
+      links
+    })
+
+    alert("Note successfully created!")
+    navigate(-1)
   }
 
   return(
@@ -42,15 +87,19 @@ export function New() {
         <Form>
           <header>
             <h1>Create note</h1>
-            <Link to="/">Return</Link>
-
+            <ButtonText title="Return" onClick={handleBack}/>
           </header>
 
           <Input
-              placeholder="Title"
-              type="text"
+            placeholder="Title"
+            type="text"
+            onChange={e => setTitle(e.target.value)}
           />
-          <Textarea placeholder="Observations"/>
+
+          <Textarea 
+            placeholder="Observations"
+            onChange={e => setDescription(e.target.value)}
+          />
 
           <Section title='Links'>
             {
@@ -93,7 +142,7 @@ export function New() {
             </div>
           </Section>
 
-          <Button title='Save'/>
+          <Button title='Save' onClick={handleNewNote}/>
 
         </Form>
       </main>
