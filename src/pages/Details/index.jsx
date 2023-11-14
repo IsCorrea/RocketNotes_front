@@ -52,34 +52,30 @@ export function Details() {
 
           <p>{data.description}</p>
 
-          {     
-            data.links &&
-              <Section title="Links">
-                <Links>
-                  {
-                    data.links.map(link => (
-                      <li key={String(link.id)}>
-                        <a href={link.url} target="_blank" rel="noreferrer">{link.url}</a>
-                      </li>
-                    ))
-                  }          
-                </Links>
-              </Section>
-          }
-
-          {
-            data.tags &&
-            <Section title="Tags">
+          <Section title="Links">
+            <Links>
               {
-                data.tags.map(tag => (
-                  <Tag 
-                    key={String(tag.id)}
-                    title={tag.name}
-                  />
+                data.links.map(link => (
+                  <li key={String(link.id)}>
+                    <a href={link.url} target="_blank" rel="noreferrer">{link.url}</a>
+                  </li>
                 ))
-              }
-            </Section>
-          }
+              }          
+            </Links>
+          </Section>
+
+
+          <Section title="Tags">
+            {
+              data.tags.map(tag => (
+                <Tag 
+                  key={String(tag.id)}
+                  title={tag.name}
+                />
+              ))
+            }
+          </Section>
+
 
           <Button title="Return" onClick={handleBack}/>
         </Content>

@@ -123,9 +123,9 @@ export function New() {
           <Section title='Tags'>
             <div className='tags'>
               {
-                tags.map((tag, index) => (
+                tags.map(tag => (
                   <NoteItem
-                    key={String(index)}
+                    key={String(tag.id)}
                     value={tag}
                     onClick={() => {handleRemoveTag(tag)}}
                     />
